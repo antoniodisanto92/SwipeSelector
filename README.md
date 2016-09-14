@@ -18,15 +18,15 @@ SwipeSelector supports API levels all the way down to 8 (Android Froyo).
 **Gradle:**
 
 ```groovy
-compile 'com.roughike:swipe-selector:1.0.6'
+compile 're.touchwa:swipe-selector:1.0.0'
 ```
 
 **Maven:**
 ```xml
 <dependency>
-  <groupId>com.roughike</groupId>
+  <groupId>re.touchwa</groupId>
   <artifactId>swipe-selector</artifactId>
-  <version>1.0.6</version>
+  <version>1.0.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -38,7 +38,7 @@ The usage is really simple.
 **First add SwipeSelector to your layout file:**
 
 ```xml
-<com.roughike.swipeselector.SwipeSelector
+<re.touchwa.swipeselector.SwipeSelector
     android:id="@+id/swipeSelector"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
@@ -72,12 +72,12 @@ if (value == 0) {
 }
 ```
 
-For an example project using multiple SwipeSelectors, [refer to the sample app](https://github.com/roughike/SwipeSelector/tree/master/sample/src/main).
+For an example project using multiple SwipeSelectors, [refer to the sample app](https://github.com/antoniodisanto92/SwipeSelector/tree/master/sample/src/main).
 
 ## Customization
 
 ```xml
-<com.roughike.swipeselector.SwipeSelector
+<re.touchwa.swipeselector.SwipeSelector
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/conditionSelector"
     android:layout_width="match_parent"
@@ -120,6 +120,17 @@ For an example project using multiple SwipeSelectors, [refer to the sample app](
   <dd>custom horizontal gravity (in other words alignment) for the description text. Can be either <code>left</code>, <code>center</code> or <code>right</code>. Default should be fine in most cases, but sometimes you might need to modify this.</dd>
 </dl>
 
+## Implementations
+
+```SlideItem Class
+
+In constructor now is possible to define if there is an Icon and select the position in layout (Can be either <code>SwipeIconGravity.DEFAULT</code>, <code>SwipeIconGravity.CENTER</code>, <code>SwipeIconGravity.LEFT</code>, <code>SwipeIconGravity.RIGHT</code> -> default and center have the same effect).
+
+There is also the support to change Gravity (alignment) for Title and Description independently to <code>swipe_descriptionGravity</code> (this mean that the gravity is changed for the Item only, instead of the whole selector) value inside the SwipeSelector class.
+To control the behaviour described before, the SwipeItem have now two setters <code>setTitleGravity(SwipeIconGravity gravity)</code> and <code>setDescriptionGravity(SwipeIconGravity gravity)</code>.
+
+```
+
 ## Apps using SwipeSelector
 
   * [ScoreIt - Score Keeper](https://play.google.com/store/apps/details?id=com.sbgapps.scoreit) : An application to keep track of score.
@@ -133,8 +144,8 @@ Feel free to create issues / pull requests.
 ## License
 
 ```
-SwipeSelector library for Android
-Copyright (c) 2016 Iiro Krankka (http://github.com/roughike).
+SwipeSelector Implementation library for Android
+Copyright (c) 2016 Antonio D'Isanto (http://github.com/antoniodisanto92).
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
