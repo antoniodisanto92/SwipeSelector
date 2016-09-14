@@ -11,10 +11,11 @@ Unfortunately, there were no ready-made solutions to achieve this, so I spent a 
 
 ## minSDK Version
 
-SwipeSelector supports API levels all the way down to 8 (Android Froyo).
+SwipeSelector supports API levels all the way down to 9 (Android Gingerbread).
+
+### NOTE: I'm waiting Sonatype response for deploying the library. Be patient please, everything will be set up as soon as possible!
 
 ## Installation
-
 **Gradle:**
 
 ```groovy
