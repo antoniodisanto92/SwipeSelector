@@ -19,13 +19,13 @@ SwipeSelector supports API levels all the way down to 9 (Android Gingerbread).
 **Gradle:**
 
 ```groovy
-compile 're.touchwa:swipe-selector:1.0.0'
+compile 'com.github.antoniodisanto92:swipe-selector:1.0.0'
 ```
 
 **Maven:**
 ```xml
 <dependency>
-  <groupId>re.touchwa</groupId>
+  <groupId>com.github.antoniodisanto92</groupId>
   <artifactId>swipe-selector</artifactId>
   <version>1.0.0</version>
   <type>pom</type>
@@ -39,7 +39,7 @@ The usage is really simple.
 **First add SwipeSelector to your layout file:**
 
 ```xml
-<re.touchwa.swipeselector.SwipeSelector
+<com.github.antoniodisanto92.swipeselector.SwipeSelector
     android:id="@+id/swipeSelector"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
@@ -78,7 +78,7 @@ For an example project using multiple SwipeSelectors, [refer to the sample app](
 ## Customization
 
 ```xml
-<re.touchwa.swipeselector.SwipeSelector
+<com.github.antoniodisanto92.swipeselector.SwipeSelector
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/conditionSelector"
     android:layout_width="match_parent"
