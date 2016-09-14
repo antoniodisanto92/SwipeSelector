@@ -4,7 +4,7 @@ ext {
     bintrayRepo = 'maven'
     bintrayName = 'swipe-selector'
 
-    publishedGroupId = 're.touchwa'
+    publishedGroupId = 'com.github.antoniodisanto92'
     libraryName = 'swipe-selector'
     artifact = 'swipe-selector'
 

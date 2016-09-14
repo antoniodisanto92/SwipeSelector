@@ -1,4 +1,4 @@
-package com.roughike.swipeselector;
+package com.github.antoniodisanto92.swipeselector;
 
 import org.junit.Test;
 

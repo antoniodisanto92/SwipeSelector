@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="re.touchwa.swipeselector">
+    package="com.github.antoniodisanto92.swipeselector">
 
     <application
         android:allowBackup="true"
