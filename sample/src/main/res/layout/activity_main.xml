@@ -35,7 +35,7 @@
             android:layout_marginRight="16dp"
             android:background="#DDDDDD" />
 
-        <re.touchwa.swipeselector.SwipeSelector
+        <com.github.antoniodisanto92.swipeselector.SwipeSelector
             android:id="@+id/sizeSelector"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -47,7 +47,7 @@
             android:layout_marginRight="16dp"
             android:background="#DDDDDD" />
 
-        <re.touchwa.swipeselector.SwipeSelector
+        <com.github.antoniodisanto92.swipeselector.SwipeSelector
             android:id="@+id/toppingSelector"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -59,7 +59,7 @@
             android:layout_marginRight="16dp"
             android:background="#DDDDDD" />
 
-        <re.touchwa.swipeselector.SwipeSelector
+        <com.github.antoniodisanto92.swipeselector.SwipeSelector
             android:id="@+id/deliverySelector"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -71,7 +71,7 @@
             android:layout_marginRight="16dp"
             android:background="#DDDDDD" />
 
-        <re.touchwa.swipeselector.SwipeSelector
+        <com.github.antoniodisanto92.swipeselector.SwipeSelector
             android:id="@+id/iconSelector"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
