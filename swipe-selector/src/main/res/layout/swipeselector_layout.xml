@@ -17,7 +17,7 @@
         android:paddingEnd="8dp"
         android:paddingRight="8dp" />
 
-    <com.roughike.swipeselector.WrappingPager
+    <re.touchwa.swipeselector.WrappingPager
         android:id="@+id/swipeselector_layout_swipePager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

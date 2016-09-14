@@ -1,12 +1,13 @@
-package com.example.swipeselector;
+package re.example.swipeselector;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
-import com.roughike.swipeselector.SwipeItem;
-import com.roughike.swipeselector.SwipeSelector;
+import re.touchwa.swipeselector.SwipeIconGravity;
+import re.touchwa.swipeselector.SwipeItem;
+import re.touchwa.swipeselector.SwipeSelector;
 
 public class MainActivity extends AppCompatActivity {
     /**
@@ -67,6 +68,22 @@ public class MainActivity extends AppCompatActivity {
                 new SwipeItem(DELIVERY_YES, "Delivery", "Our minimum-wage delivery boy will bring you the pizza by his own " +
                         "scooter using his own gas money.")
         );
+
+
+        // ITEMS
+        SwipeItem item0 = new SwipeItem(-1, "Just another selector", "This is only to show the new functionality. Start by swiping left.");
+        SwipeItem item1 = new SwipeItem(0, "Default", "This is how is set by default (center). There is a cake for you!", R.drawable.ic_cake_black);
+        SwipeItem item2 = new SwipeItem(1, "Left", "This is how is set on left. There is a cake for you!", R.drawable.ic_cake_black, SwipeIconGravity.LEFT);
+        SwipeItem item3 = new SwipeItem(2, "Right", "This is how is set on right. There is a cake for you!", R.drawable.ic_cake_black, SwipeIconGravity.RIGHT);
+
+        // CHANGE GRAVITY
+        item2.setTitleGravity(SwipeIconGravity.LEFT);
+        item3.setTitleGravity(SwipeIconGravity.RIGHT);
+        item2.setDescriptionGravity(SwipeIconGravity.LEFT);
+        item3.setDescriptionGravity(SwipeIconGravity.RIGHT);
+
+        final SwipeSelector iconSelector = (SwipeSelector) findViewById(R.id.iconSelector);
+        iconSelector.setItems(item0, item1, item2, item3);
 
         findViewById(R.id.sendButton).setOnClickListener(new View.OnClickListener() {
             @Override

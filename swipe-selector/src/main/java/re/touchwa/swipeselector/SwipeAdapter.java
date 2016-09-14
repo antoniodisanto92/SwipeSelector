@@ -1,7 +1,6 @@
-package com.roughike.swipeselector;
+package re.touchwa.swipeselector;
 
 import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.graphics.drawable.ShapeDrawable;
@@ -234,7 +233,8 @@ class SwipeAdapter extends PagerAdapter implements View.OnClickListener, ViewPag
                     customFontPath,
                     titleTextAppearance,
                     descriptionTextAppearance,
-                    descriptionGravity);
+                    descriptionGravity
+            );
         }
     }
 
@@ -249,7 +249,7 @@ class SwipeAdapter extends PagerAdapter implements View.OnClickListener, ViewPag
         // If there are SwipeItems constructed using String resources
         // instead of Strings, loop through all of them and get the
         // Strings.
-        if (SwipeItem.checkForStringResources) {
+        if (SwipeItem.checkForStringResources || SwipeItem.checkForDrawableResources) {
             ArrayList<SwipeItem> theRealOnes = new ArrayList<>();
 
             for (SwipeItem item : items) {
@@ -259,6 +259,10 @@ class SwipeAdapter extends PagerAdapter implements View.OnClickListener, ViewPag
 
                 if (item.descriptionRes != -1) {
                     item.description = mContext.getString(item.descriptionRes);
+                }
+
+                if (item.iconRes != -1) {
+                    item.icon = mContext.getResources().getDrawable(item.iconRes);
                 }
 
                 theRealOnes.add(item);
@@ -324,11 +328,28 @@ class SwipeAdapter extends PagerAdapter implements View.OnClickListener, ViewPag
      */
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        LinearLayout layout = (LinearLayout) View.inflate(mContext, R.layout.swipeselector_content_item, null);
+        SwipeItem slideItem = mItems.get(position);
+        LinearLayout layout = null;
+
+        switch (slideItem.iconGravity) {
+            case CENTER:
+            case DEFAULT:
+                layout = (LinearLayout) View.inflate(mContext, R.layout.swipeselector_content_item, null);
+                break;
+            case LEFT:
+                layout = (LinearLayout) View.inflate(mContext, R.layout.swipeselector_content_left_item, null);
+                break;
+            case RIGHT:
+                layout = (LinearLayout) View.inflate(mContext, R.layout.swipeselector_content_right_item, null);
+                break;
+        }
+
+        // GET VIEW
+        ImageView icon = (ImageView) layout.findViewById(R.id.swipeselector_content_icon);
         TextView title = (TextView) layout.findViewById(R.id.swipeselector_content_title);
         TextView description = (TextView) layout.findViewById(R.id.swipeselector_content_description);
 
-        SwipeItem slideItem = mItems.get(position);
+        // SET VIEW
         title.setText(slideItem.title);
 
         if (slideItem.description == null) {
@@ -336,6 +357,13 @@ class SwipeAdapter extends PagerAdapter implements View.OnClickListener, ViewPag
         } else {
             description.setVisibility(View.VISIBLE);
             description.setText(slideItem.description);
+        }
+
+        if (slideItem.icon == null) {
+            icon.setVisibility(View.GONE);
+        } else {
+            icon.setImageDrawable(slideItem.icon);
+            icon.setVisibility(View.VISIBLE);
         }
 
         // We shouldn't get here if the typeface didn't exist.
@@ -353,14 +381,44 @@ class SwipeAdapter extends PagerAdapter implements View.OnClickListener, ViewPag
             setTextAppearanceCompat(description, mDescriptionTextAppearance);
         }
 
-        if (mDescriptionGravity != -1) {
-            description.setGravity(mDescriptionGravity);
+        switch (slideItem.titleGravity) {
+            case DEFAULT:
+            case CENTER:
+                title.setGravity(Gravity.CENTER);
+                break;
+            case LEFT:
+                title.setGravity(Gravity.START);
+                break;
+            case RIGHT:
+                title.setGravity(Gravity.END);
+                break;
         }
 
-        layout.setPadding(mContentLeftPadding,
+        switch (slideItem.descriptionGravity) {
+            case DEFAULT:
+                if (mDescriptionGravity != -1) {
+                    description.setGravity(mDescriptionGravity);
+                } else {
+                    description.setGravity(Gravity.CENTER);
+                }
+                break;
+            case CENTER:
+                description.setGravity(Gravity.CENTER);
+                break;
+            case LEFT:
+                description.setGravity(Gravity.START);
+                break;
+            case RIGHT:
+                description.setGravity(Gravity.END);
+                break;
+        }
+
+        layout.setPadding(
+                mContentLeftPadding,
                 mSweetSixteen,
                 mContentRightPadding,
-                mSweetSixteen);
+                mSweetSixteen
+        );
 
         container.addView(layout);
         return layout;

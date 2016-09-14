@@ -4,20 +4,20 @@ ext {
     bintrayRepo = 'maven'
     bintrayName = 'swipe-selector'
 
-    publishedGroupId = 'com.roughike'
+    publishedGroupId = 're.touchwa'
     libraryName = 'swipe-selector'
     artifact = 'swipe-selector'
 
     libraryDescription = 'A nicer-looking and more intuitive alternative for radio buttons and dropdowns for Android.'
 
-    siteUrl = 'https://github.com/roughike/SwipeSelector'
-    gitUrl = 'https://github.com/roughike/SwipeSelector.git'
+    siteUrl = 'https://github.com/antoniodisanto92/SwipeSelector'
+    gitUrl = 'https://github.com/antoniodisanto92/SwipeSelector.git'
 
-    libraryVersion = '1.0.6'
+    libraryVersion = '1.0.0'
 
-    developerId = 'roughike'
-    developerName = 'Iiro Krankka'
-    developerEmail = 'iiro.krankka@gmail.com'
+    developerId = 'antoniodisanto92'
+    developerName = "Antonio D'Isanto"
+    developerEmail = 'antoniodisanto92ds@gmail.com'
 
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
@@ -25,12 +25,12 @@ ext {
 }
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
 
     defaultConfig {
-        minSdkVersion 8
-        targetSdkVersion 23
+        minSdkVersion 9
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
     }
@@ -45,7 +45,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.2.0'
+    compile 'com.android.support:appcompat-v7:24.2.1'
 }
 
 apply plugin: 'com.github.dcendents.android-maven'

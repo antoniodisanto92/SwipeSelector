@@ -1,4 +1,4 @@
-package com.example.swipeselector;
+package re.touchwa.swipeselector;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

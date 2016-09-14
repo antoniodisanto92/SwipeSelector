@@ -1,8 +1,7 @@
-package com.roughike.swipeselector;
+package re.touchwa.swipeselector;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.util.DisplayMetrics;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 
 /*
  * SwipeSelector library for Android
@@ -20,16 +19,18 @@ import android.util.DisplayMetrics;
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-class PixelUtils {
+class Indicator {
     /**
-     * Converts dps to pixels nicely.
-     * @param context the Context for getting the resources
-     * @param dp dimension in dps
-     * @return dimension in pixels
+     * Creates a new ShapeDrawable, in this case a circle.
+     * @param size the width and height for the circle
+     * @param color the color resource for the circle
+     * @return a nice and adorable tiny little circle indicator.
      */
-    protected static float dpToPixel(Context context, float dp){
-        Resources resources = context.getResources();
-        DisplayMetrics metrics = resources.getDisplayMetrics();
-        return dp * (metrics.densityDpi / 160f);
+    protected static ShapeDrawable newOne(int size, int color) {
+        ShapeDrawable indicator = new ShapeDrawable(new OvalShape());
+        indicator.setIntrinsicWidth(size);
+        indicator.setIntrinsicHeight(size);
+        indicator.getPaint().setColor(color);
+        return indicator;
     }
 }

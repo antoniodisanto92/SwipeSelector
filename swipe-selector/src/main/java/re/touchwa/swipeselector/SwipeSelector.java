@@ -1,4 +1,4 @@
-package com.roughike.swipeselector;
+package re.touchwa.swipeselector;
 
 import android.annotation.TargetApi;
 import android.content.Context;
